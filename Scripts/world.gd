@@ -1,6 +1,6 @@
 extends Node
 
-@onready var online := false
+@onready var online := true
 
 @onready var main_menu = $CanvasLayer/MainMenu
 @onready var address_entry = $CanvasLayer/MainMenu/MarginContainer/VBoxContainer/AddressEntry
@@ -107,18 +107,24 @@ func upnp_setup():
 	var upnp = UPNP.new()
 	
 	var discover_result = upnp.discover(2000, 2, "")
-	assert(discover_result == UPNP.UPNP_RESULT_SUCCESS, \
-		"UPNP Discover Failed! Error %s" % discover_result)
+	if discover_result != UPNP.UPNP_RESULT_SUCCESS:
+		push_warning("UPNP Discover Failed! Error: %s" % discover_result)
+		return
 
-	assert(upnp.get_gateway() and upnp.get_gateway().is_valid_gateway(), \
-		"UPNP Invalid Gateway!")
+	var gateway = upnp.get_gateway()
+	if not gateway or not gateway.is_valid_gateway():
+		push_warning("UPNP Invalid Gateway!")
+		return
 
 	var map_result = upnp.add_port_mapping(PORT)
-	assert(map_result == UPNP.UPNP_RESULT_SUCCESS, \
-		"UPNP Port Mapping Failed! Error %s" % map_result)
-	
-	print("Success! Join Address: %s" % upnp.query_external_address())
+	if map_result != UPNP.UPNP_RESULT_SUCCESS:
+		push_warning("UPNP Port Mapping Failed! Error: %s" % map_result)
+		push_warning("UPNP Port Mapping Failed! Defaulting to LAN mode.")
+		online = false
+		return
 
+	var external_ip = upnp.query_external_address()
+	print("UPNP Setup Success! Join Address: %s" % external_ip)
 
 func _on_weapon_spawn_timer_timeout() -> void:
 	#print("this many children: " + str(server_weapon_folder.get_child_count()))
