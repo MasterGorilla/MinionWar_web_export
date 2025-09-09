@@ -1,6 +1,6 @@
 extends Node
 
-@onready var online := false
+@onready var online := true
 
 @onready var main_menu = $CanvasLayer/MainMenu
 @onready var address_entry = $CanvasLayer/MainMenu/MarginContainer/VBoxContainer/AddressEntry
