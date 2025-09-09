@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="Weapon_Resource" load_steps=3 format=3 uid="uid://bn7vwt1xyrbe0"]
+
+[ext_resource type="PackedScene" uid="uid://5pe4l8220uxt" path="res://Spawnable Weapons/sniper_spawn.tscn" id="1_0bl0a"]
+[ext_resource type="Script" uid="uid://b8xifark3l2ks" path="res://Weapon Resources/weapon.gd" id="1_6gyve"]
+
+[resource]
+script = ExtResource("1_6gyve")
+weapon_name = "Sniper"
+Melee_Only = false
+Blade = false
+Activate_Anim = "Sniper Activate"
+Shoot_Anim = "Sniper Shoot"
+Reload_Anim = "Sniper Reload"
+Deactivate_Anim = "Sniper Deactivate"
+Out_Of_Ammo_Anim = "Sniper Out Of Ammo"
+Melee_Anim = "Sniper Melee"
+Scope_Anim = "Sniper Scope"
+Current_Ammo = 3
+Reload_Ammo = 12
+Magazine = 3
+Max_Ammo = 12
+RecoilAmmount = 0.785
+constant_dot = true
+Dot_Color = Color(1, 0, 0, 1)
+Auto_Fire = false
+Scopable = true
+Scope_Factor = 4.0
+Background = true
+constant_circle = false
+Circle_Color = Color(1, 1, 1, 1)
+Circle_Radius = 300.0
+constant_cross = false
+Cross_Color = Color(1, 1, 1, 1)
+Cross_Outer_Radius = 250.0
+Cross_Inner_Radius = 25.0
+Type = 1
+Weapon_Range = 2000.0
+Melee_Range = 1.5
+Damage = 1.5
+Melee_Damage = 1.5
+Projectile_Velocity = 2000.0
+Projectile_Scale = 1.0
+Weapon_Drop = ExtResource("1_0bl0a")
+metadata/_custom_type_script = "uid://b8xifark3l2ks"

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ewb51nccuxpo"]
+
+[ext_resource type="ArrayMesh" uid="uid://ckryn6jwsw4wg" path="res://Meshes and Shapes/Pistol.mesh" id="2_v21tj"]
+
+[node name="Pistol" type="Node3D" groups=["Weapon Node"]]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_v21tj")

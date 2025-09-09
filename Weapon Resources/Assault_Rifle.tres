@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="Weapon_Resource" load_steps=3 format=3 uid="uid://dph6ixrrexu55"]
+
+[ext_resource type="Script" uid="uid://b8xifark3l2ks" path="res://Weapon Resources/weapon.gd" id="1_5cd8j"]
+[ext_resource type="PackedScene" uid="uid://cn4pt3sgjnxrx" path="res://Spawnable Weapons/assault_rifle_spawn.tscn" id="1_r7gmo"]
+
+[resource]
+script = ExtResource("1_5cd8j")
+weapon_name = "Assault Rifle"
+Melee_Only = false
+Blade = false
+Activate_Anim = "Assault Activate"
+Shoot_Anim = "Assault Shoot"
+Reload_Anim = "Assault Reload"
+Deactivate_Anim = "Assault Deactivate"
+Out_Of_Ammo_Anim = "Assault Out Of Ammo"
+Melee_Anim = "Assault Melee"
+Scope_Anim = "Assault Scope"
+Current_Ammo = 10
+Reload_Ammo = 90
+Magazine = 10
+Max_Ammo = 90
+RecoilAmmount = 0.087
+constant_dot = false
+Dot_Color = Color(1, 1, 1, 1)
+Auto_Fire = true
+Scopable = true
+Scope_Factor = 1.5
+Background = false
+constant_circle = false
+Circle_Color = Color(1, 1, 1, 1)
+Circle_Radius = 0.0
+constant_cross = true
+Cross_Color = Color(1, 1, 1, 1)
+Cross_Outer_Radius = 100.0
+Cross_Inner_Radius = 25.0
+Type = 1
+Weapon_Range = 500.0
+Melee_Range = 1.5
+Damage = 0.3
+Melee_Damage = 1.5
+Projectile_Velocity = 400.0
+Projectile_Scale = 1.0
+Weapon_Drop = ExtResource("1_r7gmo")
+metadata/_custom_type_script = "uid://b8xifark3l2ks"

@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="Weapon_Resource" load_steps=4 format=3 uid="uid://baslvrq0to0lr"]
+
+[ext_resource type="PackedScene" uid="uid://dd5pp2dyr83wi" path="res://Scenes/bullet.tscn" id="1_qvqjo"]
+[ext_resource type="Script" uid="uid://b8xifark3l2ks" path="res://Weapon Resources/weapon.gd" id="1_xcx8n"]
+[ext_resource type="PackedScene" uid="uid://q75y7oaa1060" path="res://Spawnable Weapons/pistol_spawn.tscn" id="2_qvqjo"]
+
+[resource]
+script = ExtResource("1_xcx8n")
+weapon_name = "Pistol"
+Melee_Only = false
+Blade = false
+Activate_Anim = "Pistol Activate"
+Shoot_Anim = "Pistol Shoot"
+Reload_Anim = "Pistol Reload"
+Deactivate_Anim = "Pistol Deactivate"
+Out_Of_Ammo_Anim = "Pistol Out Of Ammo"
+Melee_Anim = "Pistol Melee"
+Scope_Anim = "None"
+Current_Ammo = 10
+Reload_Ammo = 40
+Magazine = 10
+Max_Ammo = 40
+RecoilAmmount = 0.262
+constant_dot = true
+Dot_Color = Color(1, 1, 1, 1)
+Auto_Fire = false
+Scopable = false
+Scope_Factor = 0.0
+Background = false
+constant_circle = false
+Circle_Color = Color(1, 1, 1, 1)
+Circle_Radius = 0.0
+constant_cross = true
+Cross_Color = Color(1, 1, 1, 1)
+Cross_Outer_Radius = 75.0
+Cross_Inner_Radius = 25.0
+Type = 2
+Weapon_Range = 500.0
+Melee_Range = 1.5
+Damage = 1.0
+Melee_Damage = 1.5
+Projectile_Scene = ExtResource("1_qvqjo")
+Projectile_Velocity = 100.0
+Projectile_Scale = 1.0
+Weapon_Drop = ExtResource("2_qvqjo")
+metadata/_custom_type_script = "uid://b8xifark3l2ks"

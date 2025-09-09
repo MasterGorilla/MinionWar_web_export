@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://qyrfjvmj7gd4"]
+
+[ext_resource type="ArrayMesh" uid="uid://br78xr83nusgl" path="res://Meshes and Shapes/Rocket.mesh" id="2_hthiq"]
+[ext_resource type="Script" uid="uid://bd5kx8wpuw0gm" path="res://Scripts/rocket.gd" id="2_kvp10"]
+[ext_resource type="Shape3D" uid="uid://bm4u7lkn8vwep" path="res://Meshes and Shapes/RocketCollision.shape" id="3_n4fq7"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wrv6b"]
+emission_shape_offset = Vector3(0, 0, 0.04)
+emission_shape = 1
+emission_sphere_radius = 0.04
+direction = Vector3(0, 0, 1)
+spread = 10.0
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0.1, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kvp10"]
+transparency = 1
+albedo_color = Color(0.180392, 0.180392, 0.180392, 0.831373)
+
+[sub_resource type="SphereMesh" id="SphereMesh_hthiq"]
+material = SubResource("StandardMaterial3D_kvp10")
+radius = 0.05
+height = 0.11
+
+[node name="Rocket" type="RigidBody3D"]
+top_level = true
+collision_layer = 4
+collision_mask = 7
+gravity_scale = 0.0
+continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 10
+script = ExtResource("2_kvp10")
+
+[node name="Roundcube_001" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0, 0, 0)
+mesh = ExtResource("2_hthiq")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0, 0, 0)
+shape = ExtResource("3_n4fq7")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.240375)
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_wrv6b")
+draw_pass_1 = SubResource("SphereMesh_hthiq")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

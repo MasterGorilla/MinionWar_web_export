@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://cwgbrh3q6p635"]
+
+[ext_resource type="PackedScene" uid="uid://c2f7axd0282ws" path="res://Blends/Environment.blend" id="1_a65fu"]
+[ext_resource type="Texture2D" uid="uid://cfxuc7wcfmtch" path="res://addons/kenney_prototype_textures/dark/texture_08.png" id="2_a65fu"]
+[ext_resource type="Texture2D" uid="uid://bwod2lwki4g00" path="res://addons/kenney_prototype_textures/orange/texture_10.png" id="3_a65fu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vpl2n"]
+albedo_texture = ExtResource("2_a65fu")
+emission = Color(1, 0, 0, 1)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_osnen"]
+albedo_texture = ExtResource("3_a65fu")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ukl56"]
+albedo_texture = ExtResource("2_a65fu")
+uv1_triplanar = true
+
+[node name="Environment" instance=ExtResource("1_a65fu")]
+
+[node name="Plane" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vpl2n")
+surface_material_override/1 = SubResource("StandardMaterial3D_osnen")
+
+[node name="Cube" parent="." index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ukl56")

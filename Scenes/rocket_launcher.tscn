@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://wbmqxucf53pv"]
+
+[ext_resource type="ArrayMesh" uid="uid://bvr5ewudtli3u" path="res://Meshes and Shapes/Rocket_Launcher.mesh" id="2_17r6f"]
+
+[node name="RocketLauncher" type="Node3D" groups=["Weapon Node"]]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.6, 0, 0, 0, -2.62268e-08, -0.6, 0, 0.6, -2.62268e-08, 0, 0, 0)
+mesh = ExtResource("2_17r6f")

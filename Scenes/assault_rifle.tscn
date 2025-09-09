@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcu8847blxag2"]
+
+[ext_resource type="ArrayMesh" uid="uid://drxluyh6kbnom" path="res://Meshes and Shapes/Assault_Rifle.mesh" id="2_4u15n"]
+
+[node name="AssaultRifle" type="Node3D" groups=["Weapon Node"]]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("2_4u15n")

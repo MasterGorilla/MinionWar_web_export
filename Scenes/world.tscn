@@ -1,0 +1,157 @@
+[gd_scene load_steps=8 format=3 uid="uid://bcfcags326e5e"]
+
+[ext_resource type="Script" uid="uid://cggyt1lievhkb" path="res://Scripts/world.gd" id="1_tlwt5"]
+[ext_resource type="PackedScene" uid="uid://cwgbrh3q6p635" path="res://Scenes/environment.tscn" id="3_aqk2v"]
+[ext_resource type="PackedScene" uid="uid://b21bijlg61eie" path="res://Scenes/box.tscn" id="5_fo5ed"]
+[ext_resource type="PackedScene" uid="uid://5pe4l8220uxt" path="res://Spawnable Weapons/sniper_spawn.tscn" id="7_o06y3"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fj7yv"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_tlwt5"]
+sky_material = SubResource("ProceduralSkyMaterial_fj7yv")
+
+[sub_resource type="Environment" id="Environment_aqk2v"]
+background_mode = 2
+sky = SubResource("Sky_tlwt5")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="World" type="Node"]
+script = ExtResource("1_tlwt5")
+
+[node name="PlayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://cau8ci4iw0kuu")
+spawn_path = NodePath("..")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_aqk2v")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MainMenu" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 862.0
+offset_top = 499.0
+offset_right = -862.0
+offset_bottom = -498.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MainMenu"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HostButton" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Host"
+
+[node name="JoinButton" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Join"
+
+[node name="Gamertag" type="LineEdit" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Gamertag"
+alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+selected = 0
+allow_reselect = true
+item_count = 4
+popup/item_0/text = "Original"
+popup/item_0/id = 0
+popup/item_1/text = "Cowboy"
+popup/item_1/id = 1
+popup/item_2/text = "Super Hero"
+popup/item_2/id = 2
+popup/item_3/text = "Body Builder"
+popup/item_3/id = 3
+
+[node name="AddressEntry" type="LineEdit" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Enter Address to Join Here"
+alignment = 1
+
+[node name="Environment3" parent="." instance=ExtResource("3_aqk2v")]
+
+[node name="Box" parent="Environment3" instance=ExtResource("5_fo5ed")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.48992, 10.1184)
+
+[node name="Box2" parent="Environment3" instance=ExtResource("5_fo5ed")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.43532, 1.80137, 0)
+
+[node name="Box3" parent="Environment3" instance=ExtResource("5_fo5ed")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.55308, 0)
+
+[node name="Box4" parent="Environment3" instance=ExtResource("5_fo5ed")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.112057, 8.55979, -0.369013)
+
+[node name="Box5" parent="Environment3" instance=ExtResource("5_fo5ed")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.65017, 0.0806756)
+
+[node name="Box6" parent="Environment3" instance=ExtResource("5_fo5ed")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.07793, 1.80137, 0)
+
+[node name="Box7" parent="Environment3" instance=ExtResource("5_fo5ed")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.48992, -6.17372)
+
+[node name="Spawn_Points" type="Node3D" parent="Environment3"]
+
+[node name="Spawn0" type="Marker3D" parent="Environment3/Spawn_Points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="Spawn1" type="Marker3D" parent="Environment3/Spawn_Points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 7.5, 25)
+
+[node name="Spawn2" type="Marker3D" parent="Environment3/Spawn_Points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 7.5, -25)
+
+[node name="Spawn3" type="Marker3D" parent="Environment3/Spawn_Points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 7.5, 25)
+
+[node name="Spawn4" type="Marker3D" parent="Environment3/Spawn_Points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 7.5, -25)
+
+[node name="Weapons" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.18818)
+
+[node name="ServerWeapons" type="Node3D" parent="."]
+
+[node name="Sniper_Spawn" parent="ServerWeapons" instance=ExtResource("7_o06y3")]
+transform = Transform3D(1, 0, 0, 0, 1.31134e-07, 1, 0, -1, 1.31134e-07, 0, 8.21565, 0.5)
+gravity_scale = 0.0
+current_ammo = 3
+reload_ammo = 12
+
+[node name="Bodies" type="Node3D" parent="."]
+
+[node name="WeaponSpawnTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="spawned" from="PlayerSpawner" to="." method="_on_multiplayer_spawner_spawned"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
+[connection signal="child_exiting_tree" from="ServerWeapons" to="." method="_on_server_weapons_child_exiting_tree"]
+[connection signal="timeout" from="WeaponSpawnTimer" to="." method="_on_weapon_spawn_timer_timeout"]

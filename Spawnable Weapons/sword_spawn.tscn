@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7u2a8uw55wb1"]
+
+[ext_resource type="Script" uid="uid://ckd030u3j7ish" path="res://Spawnable Weapons/weapon_pickup.gd" id="1_so4ph"]
+[ext_resource type="PackedScene" uid="uid://dhmhsgt6l8w4" path="res://Scenes/sword.tscn" id="2_eahlg"]
+[ext_resource type="Shape3D" uid="uid://dnd1rmkuknlqm" path="res://Meshes and Shapes/SwordCollision.shape" id="2_hsagk"]
+
+[node name="Sword" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0)
+collision_layer = 8
+collision_mask = 9
+continuous_cd = true
+script = ExtResource("1_so4ph")
+weapon_name = "Sword"
+
+[node name="Sword" parent="." instance=ExtResource("2_eahlg")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+shape = ExtResource("2_hsagk")

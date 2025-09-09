@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="Weapon_Resource" load_steps=3 format=3 uid="uid://bstu2dv0hdh72"]
+
+[ext_resource type="Script" uid="uid://b8xifark3l2ks" path="res://Weapon Resources/weapon.gd" id="1_23avc"]
+[ext_resource type="PackedScene" uid="uid://b7u2a8uw55wb1" path="res://Spawnable Weapons/sword_spawn.tscn" id="1_u1meh"]
+
+[resource]
+script = ExtResource("1_23avc")
+weapon_name = "Sword"
+Melee_Only = true
+Blade = true
+Activate_Anim = "Sword Activate"
+Shoot_Anim = "Sword Shoot"
+Reload_Anim = "None"
+Deactivate_Anim = "Sword Deactivate"
+Out_Of_Ammo_Anim = "Sword Out Of Ammo"
+Melee_Anim = "Sword Melee"
+Scope_Anim = "None"
+Current_Ammo = 10
+Reload_Ammo = 0
+Magazine = 10
+Max_Ammo = 0
+RecoilAmmount = 0.0
+constant_dot = false
+Dot_Color = Color(1, 1, 1, 1)
+Auto_Fire = false
+Scopable = false
+Scope_Factor = 0.0
+Background = false
+constant_circle = false
+Circle_Color = Color(1, 1, 1, 1)
+Circle_Radius = 0.0
+constant_cross = true
+Cross_Color = Color(1, 1, 1, 1)
+Cross_Outer_Radius = 100.0
+Cross_Inner_Radius = 200.0
+Type = 1
+Weapon_Range = 3.0
+Melee_Range = 1.5
+Damage = 3.0
+Melee_Damage = 1.5
+Projectile_Velocity = 600.0
+Projectile_Scale = 1.0
+Weapon_Drop = ExtResource("1_u1meh")
+metadata/_custom_type_script = "uid://b8xifark3l2ks"

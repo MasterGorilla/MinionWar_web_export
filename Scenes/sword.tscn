@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhmhsgt6l8w4"]
+
+[ext_resource type="ArrayMesh" uid="uid://cak6t46awi0ho" path="res://Meshes and Shapes/Sword.mesh" id="2_6wdhb"]
+
+[node name="Sword" type="Node3D" groups=["Weapon Node"]]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+mesh = ExtResource("2_6wdhb")

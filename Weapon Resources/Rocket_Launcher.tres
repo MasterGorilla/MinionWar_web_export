@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="Weapon_Resource" load_steps=4 format=3 uid="uid://dbjgaw0iyon80"]
+
+[ext_resource type="Script" uid="uid://b8xifark3l2ks" path="res://Weapon Resources/weapon.gd" id="1_abemc"]
+[ext_resource type="PackedScene" uid="uid://qyrfjvmj7gd4" path="res://Scenes/rocket.tscn" id="1_xjejm"]
+[ext_resource type="PackedScene" uid="uid://bmjfigko0xrlq" path="res://Spawnable Weapons/rocket_launcher_spawn.tscn" id="2_srjxq"]
+
+[resource]
+script = ExtResource("1_abemc")
+weapon_name = "Rocket Launcher"
+Melee_Only = false
+Blade = false
+Activate_Anim = "Rocket Activate"
+Shoot_Anim = "Rocket Shoot"
+Reload_Anim = "Rocket Reload"
+Deactivate_Anim = "Rocket Deactivate"
+Out_Of_Ammo_Anim = "Rocket Out Of Ammo"
+Melee_Anim = "Rocket Melee"
+Scope_Anim = "Rocket Scope"
+Current_Ammo = 2
+Reload_Ammo = 6
+Magazine = 2
+Max_Ammo = 6
+RecoilAmmount = 0.0
+constant_dot = false
+Dot_Color = Color(1, 1, 1, 0)
+Auto_Fire = false
+Scopable = true
+Scope_Factor = 2.0
+Background = false
+constant_circle = true
+Circle_Color = Color(1, 1, 1, 1)
+Circle_Radius = 100.0
+constant_cross = false
+Cross_Color = Color(1, 1, 1, 1)
+Cross_Outer_Radius = 50.0
+Cross_Inner_Radius = 15.0
+Type = 2
+Weapon_Range = 1000.0
+Melee_Range = 1.5
+Damage = 6.0
+Melee_Damage = 1.5
+Projectile_Scene = ExtResource("1_xjejm")
+Projectile_Velocity = 30.0
+Projectile_Scale = 1.0
+Weapon_Drop = ExtResource("2_srjxq")
+metadata/_custom_type_script = "uid://b8xifark3l2ks"

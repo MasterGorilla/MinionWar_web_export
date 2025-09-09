@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="Weapon_Resource" load_steps=3 format=3 uid="uid://dba8rlxvby1rt"]
+
+[ext_resource type="PackedScene" uid="uid://d1x8sr0pi44b" path="res://Spawnable Weapons/shotgun_spawn.tscn" id="1_wc48g"]
+[ext_resource type="Script" uid="uid://b8xifark3l2ks" path="res://Weapon Resources/weapon.gd" id="2_lkhxe"]
+
+[resource]
+script = ExtResource("2_lkhxe")
+weapon_name = "Shotgun"
+Melee_Only = false
+Blade = false
+Activate_Anim = "Shotgun Activate"
+Shoot_Anim = "Shotgun Shoot"
+Reload_Anim = "Shotgun Reload"
+Deactivate_Anim = "Shotgun Deactivate"
+Out_Of_Ammo_Anim = "Shotgun Out Of Ammo"
+Melee_Anim = "Shotgun Melee"
+Scope_Anim = "None"
+Current_Ammo = 3
+Reload_Ammo = 12
+Magazine = 3
+Max_Ammo = 12
+RecoilAmmount = 0.785
+constant_dot = false
+Dot_Color = Color(1, 1, 1, 1)
+Auto_Fire = false
+Scopable = false
+Scope_Factor = 0.0
+Background = false
+constant_circle = true
+Circle_Color = Color(1, 1, 1, 1)
+Circle_Radius = 50.0
+constant_cross = false
+Cross_Color = Color(1, 1, 1, 1)
+Cross_Outer_Radius = 0.0
+Cross_Inner_Radius = 0.0
+Type = 1
+Weapon_Range = 6.0
+Melee_Range = 1.5
+Damage = 3.0
+Melee_Damage = 1.5
+Projectile_Velocity = 1500.0
+Projectile_Scale = 1.0
+Weapon_Drop = ExtResource("1_wc48g")
+metadata/_custom_type_script = "uid://b8xifark3l2ks"

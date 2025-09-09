@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0s7r0gdvtarb"]
+
+[ext_resource type="PackedScene" uid="uid://ch3j08cvo5lhc" path="res://Blends/Sniper.blend" id="1_yxirs"]
+[ext_resource type="ArrayMesh" uid="uid://d5fdaf8ag7bh" path="res://Meshes and Shapes/Sniper.mesh" id="2_c0npw"]
+
+[node name="Sniper" groups=["Weapon Node"] instance=ExtResource("1_yxirs")]
+transform = Transform3D(-0.3, 0, -2.62268e-08, 0, 0.3, 0, 2.62268e-08, 0, -0.3, 0, 0, 0)
+
+[node name="Cube" parent="." index="0"]
+mesh = ExtResource("2_c0npw")

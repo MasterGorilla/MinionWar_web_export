@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfyqm5k65epor"]
+
+[ext_resource type="Script" uid="uid://cvmq0pi3c4712" path="res://Scripts/body.gd" id="1_35550"]
+[ext_resource type="ArrayMesh" uid="uid://ol8wb3iid34h" path="res://Meshes and Shapes/Minion.mesh" id="2_7h43o"]
+[ext_resource type="ArrayMesh" uid="uid://dksp6gbt52m53" path="res://Meshes and Shapes/CowboyMinion.mesh" id="3_8wq5q"]
+[ext_resource type="ArrayMesh" uid="uid://b12h0o5xfnetv" path="res://Meshes and Shapes/SuperMinion.mesh" id="4_lwtj6"]
+[ext_resource type="ArrayMesh" uid="uid://c1dh33ymfbswm" path="res://Meshes and Shapes/BodyMinion.mesh" id="5_80q7h"]
+[ext_resource type="Shape3D" uid="uid://casu84e1l775e" path="res://Meshes and Shapes/BodyCollision.shape" id="6_w6uka"]
+
+[node name="Body" type="RigidBody3D" groups=["pushable"]]
+top_level = true
+collision_layer = 2
+collision_mask = 7
+mass = 5.0
+continuous_cd = true
+script = ExtResource("1_35550")
+
+[node name="Minion" type="MeshInstance3D" parent="."]
+transform = Transform3D(0, 0, 0.5, 0, 0.5, 0, -0.5, 0, 0, 0, 1, 0)
+visible = false
+mesh = ExtResource("2_7h43o")
+skeleton = NodePath("")
+
+[node name="CowboyMinion" type="MeshInstance3D" parent="."]
+transform = Transform3D(0, 0, 0.5, 0, 0.5, 0, -0.5, 0, 0, 0, 1, 0)
+visible = false
+mesh = ExtResource("3_8wq5q")
+skeleton = NodePath("")
+
+[node name="SuperMinion" type="MeshInstance3D" parent="."]
+transform = Transform3D(0, 0, 0.5, 0, 0.5, 0, -0.5, 0, 0, 0, 1, 0)
+visible = false
+mesh = ExtResource("4_lwtj6")
+skeleton = NodePath("")
+
+[node name="BodyMinion" type="MeshInstance3D" parent="."]
+transform = Transform3D(0, 0, 0.5, 0, 0.5, 0, -0.5, 0, 0, 0, 1, 0)
+visible = false
+mesh = ExtResource("5_80q7h")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0, 0, 0.5, 0, 0.5, 0, -0.5, 0, 0, 0, 1, 0)
+shape = ExtResource("6_w6uka")

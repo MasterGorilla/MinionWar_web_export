@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://q75y7oaa1060"]
+
+[ext_resource type="Script" uid="uid://ckd030u3j7ish" path="res://Spawnable Weapons/weapon_pickup.gd" id="1_s16bu"]
+[ext_resource type="Shape3D" uid="uid://cncnmosp2lwgy" path="res://Meshes and Shapes/PistolCollision.shape" id="2_gf3gw"]
+[ext_resource type="PackedScene" uid="uid://ewb51nccuxpo" path="res://Scenes/pistol.tscn" id="2_nshcc"]
+
+[node name="Pistol" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+collision_layer = 8
+collision_mask = 9
+continuous_cd = true
+script = ExtResource("1_s16bu")
+weapon_name = "Pistol"
+
+[node name="Pistol" parent="." instance=ExtResource("2_nshcc")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = ExtResource("2_gf3gw")
