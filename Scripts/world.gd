@@ -18,7 +18,7 @@ extends Node
 signal server_spawn_weapon()
 
 #var rifle_scene = preload("res://Spawnable Weapons/rifle_spawn.tscn")
-
+var text_to_show: String
 var address = "127.0.0.1"
 #const Player = preload("res://Scenes/player.tscn")
 const Player = preload("res://Scenes/player_2.tscn")
@@ -66,6 +66,8 @@ func add_player(peer_id):
 		player.rpc("set_gamertag", $CanvasLayer/MainMenu/MarginContainer/VBoxContainer/Gamertag.text)
 		player.rpc("set_skin", $CanvasLayer/MainMenu/MarginContainer/VBoxContainer/OptionButton.selected)
 		player.set_skin_transparent()
+		await get_tree().create_timer(.1).timeout
+		player.show_text.call_deferred(text_to_show)
 
 func remove_player(peer_id):
 	var player = get_node_or_null(str(peer_id))
@@ -109,22 +111,26 @@ func upnp_setup():
 	var discover_result = upnp.discover(2000, 2, "")
 	if discover_result != UPNP.UPNP_RESULT_SUCCESS:
 		push_warning("UPNP Discover Failed! Error: %s" % discover_result)
+		text_to_show = str("UPNP Discover Failed! Error: %s" % discover_result)
 		return
 
 	var gateway = upnp.get_gateway()
 	if not gateway or not gateway.is_valid_gateway():
 		push_warning("UPNP Invalid Gateway!")
+		text_to_show = "UPNP Invalid Gateway!"
 		return
-
+	
 	var map_result = upnp.add_port_mapping(PORT)
 	if map_result != UPNP.UPNP_RESULT_SUCCESS:
 		push_warning("UPNP Port Mapping Failed! Error: %s" % map_result)
 		push_warning("UPNP Port Mapping Failed! Defaulting to LAN mode.")
+		text_to_show = "UPNP Port Mapping Failed! Defaulting to LAN mode."
 		online = false
 		return
 
 	var external_ip = upnp.query_external_address()
 	print("UPNP Setup Success! Join Address: %s" % external_ip)
+	text_to_show = str(external_ip)
 
 func _on_weapon_spawn_timer_timeout() -> void:
 	#print("this many children: " + str(server_weapon_folder.get_child_count()))

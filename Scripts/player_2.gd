@@ -53,6 +53,9 @@ var sprinting: bool = false
 var gravity = 20.0
 #var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+var text_to_show: String
+@onready var text_label = %TextLabel
+
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
 
@@ -74,6 +77,7 @@ func _ready():
 	#skin.visible = true
 	#skin.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_SHADOWS_ONLY
 	def_weapon_holder_pos = weapon_manager.position
+	#show_text("text_to_show")
 
 func _unhandled_input(event):
 	if not is_multiplayer_authority():
@@ -315,3 +319,6 @@ func regenerate(delta: float):
 func _on_regen_timer_timeout() -> void:
 	#regenerate()
 	pass
+
+func show_text(text: String):
+	text_label.text = text
