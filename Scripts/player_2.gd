@@ -187,10 +187,13 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _process(delta: float) -> void:
+	if ! is_multiplayer_authority(): return
 	cam_tilt(input_dir.x, delta)
 	weapon_tilt(input_dir.x, delta)
 	weapon_sway(delta)
 	weapon_bob(velocity.length(), delta)
+	
+	show_text(text_to_show)
 
 func cam_tilt(input_x: float, delta: float):
 	camera.rotation.z = lerp(camera.rotation.z, -input_x * .05, 10 * delta)
@@ -326,4 +329,5 @@ func _on_regen_timer_timeout() -> void:
 	pass
 
 func show_text(text: String):
+	text_to_show = text
 	text_label.text = text
