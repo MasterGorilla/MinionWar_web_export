@@ -79,9 +79,9 @@ func _ready():
 	def_weapon_holder_pos = weapon_manager.position
 	if get_multiplayer_authority() == 1:
 		if text_label.text == "":
-			text_label.text = "You are trying to host"
+			show_text("You are trying to host")
 	else:
-		text_label.text = "You are not the host"
+		show_text("You are not the host")
 	#show_text("text_to_show")
 
 func _unhandled_input(event):
