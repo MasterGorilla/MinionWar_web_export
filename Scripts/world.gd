@@ -22,7 +22,7 @@ var text_to_show: String
 var address = "127.0.0.1"
 #const Player = preload("res://Scenes/player.tscn")
 const Player = preload("res://Scenes/player_2.tscn")
-const PORT = 3141
+const PORT = 5000
 var enet_peer = ENetMultiplayerPeer.new()
 
 func _unhandled_input(_event):
