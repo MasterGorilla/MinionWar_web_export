@@ -67,7 +67,6 @@ func add_player(peer_id):
 		player.rpc("set_skin", $CanvasLayer/MainMenu/MarginContainer/VBoxContainer/OptionButton.selected)
 		player.set_skin_transparent()
 		await get_tree().create_timer(.1).timeout
-		if text_to_show == "": return
 		player.show_text.call_deferred(text_to_show)
 
 func remove_player(peer_id):

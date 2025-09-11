@@ -23,7 +23,7 @@ func take_hit(_velocity, _direction, _position):
 @rpc("call_local", "any_peer")
 func receive_damage(_damage: float):
 	health -= 1
-	print(health)
+	#print(health)
 	if health < 1:
 		health = 10
 		global_position = start_position
