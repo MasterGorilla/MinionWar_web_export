@@ -22,7 +22,7 @@ var text_to_show: String
 var address = "127.0.0.1"
 #const Player = preload("res://Scenes/player.tscn")
 const Player = preload("res://Scenes/player_2.tscn")
-const PORT = 9999
+const PORT = 3141
 var enet_peer = ENetMultiplayerPeer.new()
 
 func _unhandled_input(_event):
@@ -120,7 +120,7 @@ func upnp_setup():
 		text_to_show = "UPNP Invalid Gateway!"
 		return
 	
-	var map_result = upnp.add_port_mapping(PORT)
+	var map_result = upnp.add_port_mapping(PORT + 1)
 	if map_result != UPNP.UPNP_RESULT_SUCCESS:
 		push_warning("UPNP Port Mapping Failed! Error: %s" % map_result)
 		push_warning("UPNP Port Mapping Failed! Defaulting to LAN mode.")

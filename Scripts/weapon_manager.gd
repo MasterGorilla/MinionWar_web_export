@@ -354,7 +354,7 @@ func hit_scan_damage(collider, direction, _position, _velocity := current_weapon
 			if collider.is_multiplayer_authority(): return
 			collider.receive_damage.rpc_id(collider.get_multiplayer_authority(), _damage)
 		else:
-			print("damaging box")
+			#print("damaging box")
 			collider.receive_damage.rpc(_damage)
 
 @rpc("any_peer", "call_local")
